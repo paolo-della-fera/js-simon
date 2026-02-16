@@ -2,7 +2,7 @@
 const containerEl = document.getElementById('numbers-list')
 const countdownEl = document.getElementById('countdown')
 const formEl = document.getElementById('answers-form')
-const messageEl = document.getElementById('message') 
+const messageEl = document.getElementById('message')
 
 // mi creo un array dove salvare i numeri generati
 let randomNumbers = [];
@@ -36,4 +36,39 @@ const interval = setInterval(function () {
         formEl.classList.add('d-block');
     }
     console.log(timer)
-}, 1000); 
+}, 1000);
+
+
+// scateno l'evento del submit al form 
+formEl.addEventListener('submit', function (e) {
+    e.preventDefault()
+
+    // mi creo un array dove salvare i numeri inseriti dall'utente 
+    const userNumbers = []
+
+    // mi creo un array dove mettere solo i numeri corretti
+    const correctNumbers = []
+
+    // mi seleziono tutti gli input 
+    const inputs = formEl.querySelectorAll('input');
+
+    // salvo i numeri dentro il mio array 
+    for (let i = 0; i < inputs.length; i++) {
+        userNumbers.push(parseInt(inputs[i].value));
+    }
+
+    // effettuo il confronto tra i due array 
+    for (let i = 0; i < userNumbers.length; i++) {
+
+        if (randomNumbers.includes(userNumbers[i])) {
+            correctNumbers.push(userNumbers[i]);
+        }
+
+    }
+
+
+    // stampo il messaggio in pagina 
+    messageEl.innerText =
+        `Hai indovinato ${correctNumbers.length} numero/i: ${correctNumbers.join(', ')}`;
+
+});
