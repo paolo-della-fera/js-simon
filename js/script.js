@@ -11,7 +11,7 @@ let randomNumbers = [];
 for (let i = 0; i < 5; i++) {
     let numbers = Math.floor(Math.random() * 50) + 1;
     // salvo i numeri generati nell'array
-    randomNumbers.push(number);
+    randomNumbers.push(numbers);
     containerEl.innerHTML += '<li>' + numbers
 }
 
