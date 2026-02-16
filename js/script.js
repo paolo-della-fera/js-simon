@@ -7,13 +7,17 @@ const messageEl = document.getElementById('message')
 // mi creo un array dove salvare i numeri generati
 let randomNumbers = [];
 
-// mi creo il ciclo for per generare 5 numeri casuali da 1 a 50
-for (let i = 0; i < 5; i++) {
-    let numbers = Math.floor(Math.random() * 50) + 1;
-    // salvo i numeri generati nell'array
-    randomNumbers.push(numbers);
-    containerEl.innerHTML += '<li>' + numbers
+// mi creo il ciclo while per generare 5 numeri casuali da 1 a 50
+while (randomNumbers.length < 5) {
+    let number = Math.floor(Math.random() * 50) + 1;
+
+    // aggiungo solo se non è già presente
+    if (!randomNumbers.includes(number)) {
+        randomNumbers.push(number);
+        containerEl.innerHTML += '<li>' + number
+    }
 }
+
 
 
 // countdown di 30 secondi per memorizzare i numeri 
