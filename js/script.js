@@ -2,11 +2,16 @@
 const containerEl = document.getElementById('numbers-list')
 const countdownEl = document.getElementById('countdown')
 const formEl = document.getElementById('answers-form')
+const messageEl = document.getElementById('message') 
 
+// mi creo un array dove salvare i numeri generati
+let randomNumbers = [];
 
 // mi creo il ciclo for per generare 5 numeri casuali da 1 a 50
 for (let i = 0; i < 5; i++) {
     let numbers = Math.floor(Math.random() * 50) + 1;
+    // salvo i numeri generati nell'array
+    randomNumbers.push(number);
     containerEl.innerHTML += '<li>' + numbers
 }
 
